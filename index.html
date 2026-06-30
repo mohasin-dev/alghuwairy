@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 
 <head>
     <meta charset="utf-8">
@@ -12,8 +12,10 @@
          - Replace og image path with your real uploaded image using { asset('...') }.
     ========================================================= -->
     <title>Al-Ghuwairy Furniture Trading | Sofas & Curtains in Saudi Arabia</title>
-    <meta name="description" content="Al-Ghuwairy Furniture Trading offers premium sofas, curtains, Arabic majlis furniture, living room sofas, custom curtain design, delivery, and WhatsApp ordering in Saudi Arabia.">
-    <meta name="keywords" content="Al-Ghuwairy Furniture, مفروشات الغويري, sofa Saudi Arabia, sofas in Riyadh, curtains Saudi Arabia, sofa and curtain shop, Arabic majlis sofa, living room furniture Saudi Arabia, custom curtains, luxury sofa, كنب السعودية, ستائر السعودية, كنب وستائر, مجالس عربية">
+    <meta name="description"
+        content="Al-Ghuwairy Furniture Trading offers premium sofas, curtains, Arabic majlis furniture, living room sofas, custom curtain design, delivery, and WhatsApp ordering in Saudi Arabia.">
+    <meta name="keywords"
+        content="Al-Ghuwairy Furniture, مفروشات الغويري, sofa Saudi Arabia, sofas in Riyadh, curtains Saudi Arabia, sofa and curtain shop, Arabic majlis sofa, living room furniture Saudi Arabia, custom curtains, luxury sofa, كنب السعودية, ستائر السعودية, كنب وستائر, مجالس عربية">
     <meta name="author" content="Al-Ghuwairy Furniture Trading">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="googlebot" content="index, follow">
@@ -30,7 +32,8 @@
     <!-- Open Graph / Facebook / WhatsApp Preview -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Al-Ghuwairy Furniture Trading | Sofas & Curtains in Saudi Arabia">
-    <meta property="og:description" content="Shop premium sofas, curtains, Arabic majlis seating, and modern living room furniture in Saudi Arabia. Order directly through WhatsApp.">
+    <meta property="og:description"
+        content="Shop premium sofas, curtains, Arabic majlis seating, and modern living room furniture in Saudi Arabia. Order directly through WhatsApp.">
     <meta property="og:url" content="https://YOUR_DOMAIN.com/">
     <meta property="og:site_name" content="Al-Ghuwairy Furniture Trading">
     <meta property="og:image" content="https://YOUR_DOMAIN.com/assets/images/al-ghuwairy-sofa-og.jpg">
@@ -41,7 +44,8 @@
     <!-- Twitter / X Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Al-Ghuwairy Furniture Trading | Sofas & Curtains in Saudi Arabia">
-    <meta name="twitter:description" content="Premium sofas, curtains, majlis furniture, and living room furniture in Saudi Arabia. Chat on WhatsApp to order.">
+    <meta name="twitter:description"
+        content="Premium sofas, curtains, majlis furniture, and living room furniture in Saudi Arabia. Chat on WhatsApp to order.">
     <meta name="twitter:image" content="https://YOUR_DOMAIN.com/assets/images/al-ghuwairy-sofa-og.jpg">
 
     <!-- Favicon -->
@@ -64,10 +68,14 @@
       "description": "Al-Ghuwairy Furniture Trading is a sofa and curtain furniture shop in Saudi Arabia offering sofas, curtains, Arabic majlis furniture, and modern living room furniture with WhatsApp ordering.",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Riyadh",
-        "addressRegion": "Riyadh Province",
         "addressCountry": "SA"
       },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "26.428379",
+        "longitude": "50.066532"
+      },
+      "hasMap": "https://www.google.com/maps?q=26.428379,50.066532",
       "areaServed": {
         "@type": "Country",
         "name": "Saudi Arabia"
@@ -499,6 +507,21 @@
             padding: 34px;
         }
 
+        .map-card {
+            background: #fff;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 14px 35px rgba(0, 0, 0, 0.07);
+            border: 1px solid rgba(11, 93, 59, 0.08);
+        }
+
+        .map-frame {
+            width: 100%;
+            height: 420px;
+            border: 0;
+            display: block;
+        }
+
         .form-control,
         .form-select {
             border-radius: 15px;
@@ -625,6 +648,10 @@
                 padding: 24px;
             }
 
+            .map-frame {
+                height: 320px;
+            }
+
             .whatsapp-float {
                 width: 56px;
                 height: 56px;
@@ -678,8 +705,8 @@
 
                 <div class="d-flex align-items-center gap-2">
                     <select id="languageSelect" class="form-select language-select">
-                        <option value="ar" selected>العربية</option>
-                        <option value="en">English</option>
+                        <option value="ar">العربية</option>
+                        <option value="en" selected>English</option>
                     </select>
                 </div>
             </div>
@@ -1163,12 +1190,14 @@
                     <div class="contact-card h-100">
                         <h4 class="fw-bold mb-4" data-ar="معلومات التواصل" data-en="Contact Information">معلومات التواصل
                         </h4>
-                        <p><i class="bi bi-geo-alt-fill text-success"></i> <span
-                                data-ar="الرياض، المملكة العربية السعودية" data-en="Riyadh, Saudi Arabia">الرياض،
-                                المملكة العربية السعودية</span></p>
-                        <p><i class="bi bi-telephone-fill text-success"></i> <a class="text-decoration-none text-dark" href="tel:00966508709877">+966 50 870 9877</a></p>
-                        <p><i class="bi bi-whatsapp text-success"></i> <a class="text-decoration-none text-dark" href="https://wa.me/966508709877" target="_blank">+966 50 870 9877</a></p>
-                        <p><i class="bi bi-envelope-fill text-success"></i> <a class="text-decoration-none text-dark" href="mailto:Imdad99441@gmail.com">Imdad99441@gmail.com</a></p>
+                        <p><i class="bi bi-geo-alt-fill text-success"></i> <span data-ar="المملكة العربية السعودية"
+                                data-en="Saudi Arabia">المملكة العربية السعودية</span></p>
+                        <p><i class="bi bi-telephone-fill text-success"></i> <a class="text-decoration-none text-dark"
+                                href="tel:00966508709877">+966 50 870 9877</a></p>
+                        <p><i class="bi bi-whatsapp text-success"></i> <a class="text-decoration-none text-dark"
+                                href="https://wa.me/966508709877" target="_blank">+966 50 870 9877</a></p>
+                        <p><i class="bi bi-envelope-fill text-success"></i> <a class="text-decoration-none text-dark"
+                                href="mailto:Imdad99441@gmail.com">Imdad99441@gmail.com</a></p>
                         <a href="https://wa.me/966508709877" target="_blank" class="btn btn-main mt-3"
                             data-ar="افتح واتساب" data-en="Open WhatsApp">افتح واتساب</a>
                     </div>
@@ -1196,6 +1225,29 @@
                             <button type="button" class="btn btn-main w-100" data-ar="إرسال"
                                 data-en="Send">إرسال</button>
                         </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="map-card">
+                        <div class="p-4">
+                            <h4 class="fw-bold mb-2" data-ar="موقعنا على الخريطة" data-en="Our Location on Google Map">
+                                موقعنا على الخريطة</h4>
+                            <p class="text-muted mb-3" data-ar="يمكنك زيارة موقعنا أو فتح الاتجاهات عبر خرائط Google."
+                                data-en="You can visit our location or open directions through Google Maps.">يمكنك زيارة
+                                موقعنا أو فتح الاتجاهات عبر خرائط Google.</p>
+                            <a class="btn btn-main mb-3" href="https://www.google.com/maps?q=26.428379,50.066532"
+                                target="_blank" data-ar="افتح الاتجاهات" data-en="Open Directions">افتح الاتجاهات</a>
+                        </div>
+                        <iframe class="map-frame"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3572.848071805599!2d50.06395707542279!3d26.428378976939207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e49fdece306af7f%3A0xd6135617889661de!2z2YXZgdix2YjYtNin2Kog2KjZitiqINin2YTYrtmK2LEg2YTZhNin2KvYp9ir!5e0!3m2!1sen!2sbd!4v1782833762056!5m2!1sen!2sbd"
+                            title="Al-Ghuwairy Furniture Trading Location" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
+                        </iframe>
+
+                        <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3572.848071805599!2d50.06395707542279!3d26.428378976939207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e49fdece306af7f%3A0xd6135617889661de!2z2YXZgdix2YjYtNin2Kog2KjZitiqINin2YTYrtmK2LEg2YTZhNin2KvYp9ir!5e0!3m2!1sen!2sbd!4v1782833762056!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe> -->
                     </div>
                 </div>
             </div>
@@ -1231,7 +1283,8 @@
                     <h6 data-ar="تواصل" data-en="Contact">تواصل</h6>
                     <p class="mb-1"><a href="tel:00966508709877">+966 50 870 9877</a></p>
                     <p class="mb-1"><a href="mailto:Imdad99441@gmail.com">Imdad99441@gmail.com</a></p>
-                    <p class="mb-0" data-ar="الرياض، السعودية" data-en="Riyadh, Saudi Arabia">الرياض، السعودية</p>
+                    <p class="mb-0" data-ar="المملكة العربية السعودية" data-en="Saudi Arabia">المملكة العربية السعودية
+                    </p>
                 </div>
             </div>
 
@@ -1302,7 +1355,7 @@
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
         // Default language is Arabic
-        changeLanguage('ar');
+        changeLanguage('en');
     </script>
 
 </body>
