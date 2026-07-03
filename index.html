@@ -272,11 +272,31 @@
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
         }
 
+        .navbar .container {
+            gap: 12px;
+        }
+
+        .navbar-brand {
+            margin: 0;
+        }
+
         .brand-logo {
             display: flex;
             align-items: center;
             gap: 12px;
             text-decoration: none;
+            min-width: 0;
+            max-width: min(46vw, 430px);
+            white-space: normal;
+        }
+
+        .brand-text {
+            min-width: 0;
+            text-align: left;
+        }
+
+        html[dir="rtl"] .brand-text {
+            text-align: right;
         }
 
         .brand-mark {
@@ -299,18 +319,30 @@
             gap: 8px;
             flex-wrap: wrap;
             line-height: 1.2;
+            min-width: 0;
+            width: 100%;
+        }
+
+        html[dir="rtl"] .brand-row {
+            justify-content: flex-start;
         }
 
         .brand-ar {
             color: var(--primary);
             font-size: 20px;
             font-weight: 900;
+            overflow-wrap: anywhere;
+            direction: rtl;
+            unicode-bidi: isolate;
         }
 
         .brand-en {
             color: var(--brown);
             font-size: 18px;
             font-weight: 800;
+            overflow-wrap: anywhere;
+            direction: ltr;
+            unicode-bidi: isolate;
         }
 
         .brand-divider {
@@ -321,10 +353,12 @@
 
         .brand-subtitle {
             display: block;
+            width: 100%;
             color: #8a6f3d;
             font-size: 13px;
             font-weight: 700;
             margin-top: 3px;
+            unicode-bidi: isolate;
         }
 
         .nav-link {
@@ -336,10 +370,37 @@
             color: var(--gold) !important;
         }
 
-        .language-select {
-            min-width: 125px;
+        html[dir="rtl"] .navbar-nav {
+            padding-right: 0;
+        }
+
+        html[dir="rtl"] .navbar-collapse {
+            text-align: right;
+        }
+
+        .language-switch {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px;
             border-radius: 50px;
-            font-weight: 800;
+            background: #fff;
+            border: 1px solid rgba(11, 93, 59, 0.16);
+        }
+
+        .language-btn {
+            border: 0;
+            border-radius: 50px;
+            background: transparent;
+            color: var(--primary-dark);
+            padding: 7px 14px;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .language-btn.active {
+            background: var(--primary);
+            color: #fff;
         }
 
         /* Hero Slider */
@@ -630,6 +691,22 @@
 
         /* Mobile Responsive */
         @media (max-width: 991px) {
+            .brand-logo {
+                max-width: calc(100% - 72px);
+            }
+
+            .navbar-collapse {
+                flex-basis: 100%;
+            }
+
+            .navbar-nav {
+                align-items: flex-start;
+            }
+
+            html[dir="rtl"] .navbar-nav {
+                align-items: flex-end;
+            }
+
             .hero-slide {
                 min-height: 560px;
             }
@@ -642,32 +719,55 @@
                 padding-top: 15px;
             }
 
+            .language-switch {
+                margin-top: 10px;
+            }
+
             .parallax-section {
                 background-attachment: scroll;
             }
         }
 
         @media (max-width: 576px) {
+            .brand-logo {
+                gap: 8px;
+                max-width: calc(100% - 58px);
+            }
+
             .brand-mark {
-                width: 40px;
-                height: 40px;
-                font-size: 22px;
+                width: 38px;
+                height: 38px;
+                font-size: 21px;
+            }
+
+            .brand-row {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 2px;
+                line-height: 1.12;
+            }
+
+            html[dir="rtl"] .brand-row {
+                align-items: flex-start;
             }
 
             .brand-ar {
-                font-size: 15px;
-            }
-
-            .brand-en {
                 font-size: 14px;
             }
 
+            .brand-en {
+                display: block;
+                font-size: 12px;
+                line-height: 1.15;
+            }
+
             .brand-divider {
-                height: 15px;
+                display: none;
             }
 
             .brand-subtitle {
-                font-size: 11px;
+                font-size: 10px;
+                line-height: 1.2;
             }
 
             .hero-slide {
@@ -726,7 +826,7 @@
                         <span class="brand-divider"></span>
                         <span class="brand-en">Al-Ghuwairy Furniture Trading</span>
                     </div>
-                    <small class="brand-subtitle">كنب وستائر | Sofa & Curtain</small>
+                    <small class="brand-subtitle" data-ar="كنب وستائر" data-en="Sofa & Curtain">كنب وستائر</small>
                 </div>
             </a>
 
@@ -750,11 +850,9 @@
                             rel="noopener" data-ar="تواصل معنا" data-en="Contact">تواصل معنا</a></li>
                 </ul>
 
-                <div class="d-flex align-items-center gap-2">
-                    <select id="languageSelect" class="form-select language-select">
-                        <option value="ar" selected>العربية</option>
-                        <option value="en">English</option>
-                    </select>
+                <div class="language-switch" aria-label="Language switcher">
+                    <button type="button" class="language-btn active" data-lang="ar">العربية</button>
+                    <button type="button" class="language-btn" data-lang="en">English</button>
                 </div>
             </div>
         </div>
@@ -1423,11 +1521,12 @@
         ========================================================= */
 
         const phoneNumber = '966508709877';
-        const languageSelect = document.getElementById('languageSelect');
+        let currentLang = 'ar';
 
         function changeLanguage(lang) {
             const html = document.documentElement;
 
+            currentLang = lang;
             html.lang = lang;
             html.dir = lang === 'ar' ? 'rtl' : 'ltr';
             document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
@@ -1435,10 +1534,13 @@
             document.querySelectorAll('[data-ar][data-en]').forEach(function (element) {
                 element.textContent = element.getAttribute('data-' + lang);
             });
+
+            document.querySelectorAll('.language-btn').forEach(function (button) {
+                button.classList.toggle('active', button.getAttribute('data-lang') === lang);
+            });
         }
 
         function openWhatsApp(productName) {
-            const currentLang = languageSelect.value;
             const message = currentLang === 'ar'
                 ? 'مرحباً، أريد الاستفسار عن المنتج: ' + productName
                 : 'Hello, I want to ask about this product: ' + productName;
@@ -1448,7 +1550,6 @@
         }
 
         function openContactWhatsApp() {
-            const currentLang = languageSelect.value;
             const name = document.getElementById('contactName').value.trim();
             const mobile = document.getElementById('contactMobile').value.trim();
             const product = document.getElementById('contactProduct').value;
@@ -1476,7 +1577,6 @@
 
         document.querySelectorAll('.js-whatsapp-product').forEach(function (product) {
             product.addEventListener('click', function () {
-                const currentLang = languageSelect.value;
                 const productName = product.getAttribute('data-product-' + currentLang);
 
                 if (productName) {
@@ -1485,8 +1585,10 @@
             });
         });
 
-        languageSelect.addEventListener('change', function () {
-            changeLanguage(this.value);
+        document.querySelectorAll('.language-btn').forEach(function (button) {
+            button.addEventListener('click', function () {
+                changeLanguage(button.getAttribute('data-lang'));
+            });
         });
 
         document.getElementById('contactForm').addEventListener('submit', function (event) {
