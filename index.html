@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 
 <head>
     <meta charset="utf-8">
@@ -448,6 +448,32 @@
             font-weight: 900;
         }
 
+        .price-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .product-whatsapp-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 0;
+            background: #25d366;
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex: 0 0 auto;
+        }
+
+        .product-whatsapp-btn:hover {
+            background: #1ebe5d;
+            color: #fff;
+        }
+
         .old-price {
             color: #999;
             text-decoration: line-through;
@@ -553,15 +579,14 @@
             color: var(--gold);
         }
 
-        /* Floating WhatsApp */
+        /* Floating Contact Buttons */
+        .call-float,
         .whatsapp-float {
             position: fixed;
             right: 22px;
-            bottom: 22px;
             width: 64px;
             height: 64px;
             border-radius: 50%;
-            background: #25d366;
             color: #fff;
             display: flex;
             align-items: center;
@@ -569,9 +594,21 @@
             font-size: 34px;
             z-index: 9999;
             text-decoration: none;
+        }
+
+        .call-float {
+            bottom: 105px;
+            background: var(--primary);
+            box-shadow: 0 10px 25px rgba(11, 93, 59, 0.28);
+        }
+
+        .whatsapp-float {
+            bottom: 22px;
+            background: #25d366;
             animation: whatsappBlink 1.25s infinite ease-in-out;
         }
 
+        .call-float:hover,
         .whatsapp-float:hover {
             color: #fff;
             transform: scale(1.08);
@@ -654,11 +691,19 @@
                 height: 320px;
             }
 
+            .call-float,
             .whatsapp-float {
                 width: 56px;
                 height: 56px;
                 font-size: 30px;
                 right: 16px;
+            }
+
+            .call-float {
+                bottom: 84px;
+            }
+
+            .whatsapp-float {
                 bottom: 16px;
             }
         }
@@ -701,14 +746,14 @@
                             data-en="Products">المنتجات</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about" data-ar="من نحن" data-en="About">من نحن</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="#contact" data-ar="تواصل معنا"
-                            data-en="Contact">تواصل معنا</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://wa.me/966508709877" target="_blank"
+                            rel="noopener" data-ar="تواصل معنا" data-en="Contact">تواصل معنا</a></li>
                 </ul>
 
                 <div class="d-flex align-items-center gap-2">
                     <select id="languageSelect" class="form-select language-select">
-                        <option value="ar">العربية</option>
-                        <option value="en" selected>English</option>
+                        <option value="ar" selected>العربية</option>
+                        <option value="en">English</option>
                     </select>
                 </div>
             </div>
@@ -732,8 +777,9 @@
                                 اكتشف تشكيلة أنيقة من الكنب، المجالس، والستائر بتصاميم تناسب الذوق السعودي العصري.</p>
                             <a href="#products" class="btn btn-gold" data-ar="تسوق الآن" data-en="Shop Now">تسوق
                                 الآن</a>
-                            <a href="#contact" class="btn btn-outline-light rounded-pill px-4 fw-bold ms-2"
-                                data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a>
+                            <a href="https://wa.me/966508709877" target="_blank" rel="noopener"
+                                class="btn btn-outline-light rounded-pill px-4 fw-bold ms-2" data-ar="تواصل معنا"
+                                data-en="Contact Us">تواصل معنا</a>
                         </div>
                     </div>
                 </div>
@@ -829,7 +875,12 @@
                             <p class="text-muted" data-ar="تصميم واسع ومريح لغرف المعيشة."
                                 data-en="Spacious and comfortable design for living rooms.">تصميم واسع ومريح لغرف
                                 المعيشة.</p>
-                            <span class="price">2,499 SAR</span>
+                            <div class="price-row">
+                                <span class="price">2,499 SAR</span>
+                                <button type="button" class="product-whatsapp-btn" aria-label="Order on WhatsApp">
+                                    <i class="bi bi-whatsapp"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -846,7 +897,12 @@
                             </h5>
                             <p class="text-muted" data-ar="مناسب للضيافة والمجالس السعودية."
                                 data-en="Perfect for Saudi majlis and guest rooms.">مناسب للضيافة والمجالس السعودية.</p>
-                            <span class="price">1,899 SAR</span>
+                            <div class="price-row">
+                                <span class="price">1,899 SAR</span>
+                                <button type="button" class="product-whatsapp-btn" aria-label="Order on WhatsApp">
+                                    <i class="bi bi-whatsapp"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -862,7 +918,12 @@
                             <h5 class="product-title" data-ar="ستائر فاخرة" data-en="Luxury Curtains">ستائر فاخرة</h5>
                             <p class="text-muted" data-ar="ألوان هادئة وخامات أنيقة."
                                 data-en="Calm colors and elegant materials.">ألوان هادئة وخامات أنيقة.</p>
-                            <span class="price">750 SAR</span>
+                            <div class="price-row">
+                                <span class="price">750 SAR</span>
+                                <button type="button" class="product-whatsapp-btn" aria-label="Order on WhatsApp">
+                                    <i class="bi bi-whatsapp"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -878,7 +939,12 @@
                             <h5 class="product-title" data-ar="كرسي استرخاء" data-en="Lounge Chair">كرسي استرخاء</h5>
                             <p class="text-muted" data-ar="قطعة مريحة للقراءة والاسترخاء."
                                 data-en="Comfortable piece for reading and relaxing.">قطعة مريحة للقراءة والاسترخاء.</p>
-                            <span class="price">899 SAR</span>
+                            <div class="price-row">
+                                <span class="price">899 SAR</span>
+                                <button type="button" class="product-whatsapp-btn" aria-label="Order on WhatsApp">
+                                    <i class="bi bi-whatsapp"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -965,7 +1031,12 @@
                                 ثلاثي أخضر</h5>
                             <p class="text-muted" data-ar="لون جميل وراحة ممتازة."
                                 data-en="Beautiful color with excellent comfort.">لون جميل وراحة ممتازة.</p>
-                            <span class="price">1,450 SAR</span>
+                            <div class="price-row">
+                                <span class="price">1,450 SAR</span>
+                                <button type="button" class="product-whatsapp-btn" aria-label="Order on WhatsApp">
+                                    <i class="bi bi-whatsapp"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -981,7 +1052,12 @@
                                 للشقق</h5>
                             <p class="text-muted" data-ar="مناسب للمساحات الصغيرة." data-en="Perfect for small spaces.">
                                 مناسب للمساحات الصغيرة.</p>
-                            <span class="price">1,150 SAR</span>
+                            <div class="price-row">
+                                <span class="price">1,150 SAR</span>
+                                <button type="button" class="product-whatsapp-btn" aria-label="Order on WhatsApp">
+                                    <i class="bi bi-whatsapp"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -997,7 +1073,12 @@
                                 غرفة معيشة</h5>
                             <p class="text-muted" data-ar="تصميم أنيق وعملي." data-en="Elegant and practical design.">
                                 تصميم أنيق وعملي.</p>
-                            <span class="price">650 SAR</span>
+                            <div class="price-row">
+                                <span class="price">650 SAR</span>
+                                <button type="button" class="product-whatsapp-btn" aria-label="Order on WhatsApp">
+                                    <i class="bi bi-whatsapp"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1013,7 +1094,12 @@
                                 فاخر</h5>
                             <p class="text-muted" data-ar="لمسة فخامة لغرفة الضيافة."
                                 data-en="Luxury touch for guest rooms.">لمسة فخامة لغرفة الضيافة.</p>
-                            <span class="price">2,250 SAR</span>
+                            <div class="price-row">
+                                <span class="price">2,250 SAR</span>
+                                <button type="button" class="product-whatsapp-btn" aria-label="Order on WhatsApp">
+                                    <i class="bi bi-whatsapp"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1208,24 +1294,26 @@
 
                 <div class="col-lg-6">
                     <div class="contact-card h-100">
-                        <form>
+                        <form id="contactForm">
                             <div class="mb-3">
-                                <input type="text" class="form-control" placeholder="الاسم / Name">
+                                <input id="contactName" type="text" class="form-control" placeholder="الاسم / Name">
                             </div>
                             <div class="mb-3">
-                                <input type="tel" class="form-control" placeholder="رقم الجوال / Mobile Number">
+                                <input id="contactMobile" type="tel" class="form-control"
+                                    placeholder="رقم الجوال / Mobile Number">
                             </div>
                             <div class="mb-3">
-                                <select class="form-select">
+                                <select id="contactProduct" class="form-select">
                                     <option>كنب / Sofa</option>
                                     <option>ستائر / Curtain</option>
                                     <option>كنب وستائر / Sofa & Curtain</option>
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <textarea class="form-control" rows="4" placeholder="رسالتك / Your Message"></textarea>
+                                <textarea id="contactMessage" class="form-control" rows="4"
+                                    placeholder="رسالتك / Your Message"></textarea>
                             </div>
-                            <button type="button" class="btn btn-main w-100" data-ar="إرسال"
+                            <button type="submit" class="btn btn-main w-100" data-ar="إرسال"
                                 data-en="Send">إرسال</button>
                         </form>
                     </div>
@@ -1244,12 +1332,20 @@
                             <a class="btn btn-main mb-3" href="https://www.google.com/maps?q=26.428379,50.066532"
                                 target="_blank" data-ar="افتح الاتجاهات" data-en="Open Directions">افتح الاتجاهات</a>
                         </div>
-                        
+
                         <iframe class="map-frame"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3572.8421575554967!2d50.0663609!3d26.428569800000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e49fc51151e5ce1%3A0x63d209a321c76a58!2z2YXZgdix2YjYtNin2Kog2KfZhNi62YjZitix2Yog2LfYp9mI2YTYp9iq!5e0!3m2!1sen!2sbd!4v1783015042327!5m2!1sen!2sbd"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57174.432536996836!2d50.037803859279144!3d26.410499748505504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e49fc51151e5ce1%3A0x63d209a321c76a58!2z2YXZgdix2YjYtNin2Kog2KfZhNi62YjZitix2Yog2LfYp9mI2YTYp9iq!5e0!3m2!1sen!2sbd!4v1783089442862!5m2!1sen!2sbd"
                             title="Al-Ghuwairy Furniture Trading Location" loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
                         </iframe>
+
+                        <!-- <iframe class="map-frame"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3572.8421575554967!2d50.0663609!3d26.428569800000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e49fc51151e5ce1%3A0x63d209a321c76a58!2z2YXZgdix2YjYtNin2Kog2KfZhNi62YjZitix2Yog2LfYp9mI2YTYp9iq!5e0!3m2!1sen!2sbd!4v1783015042327!5m2!1sen!2sbd"
+                            title="Al-Ghuwairy Furniture Trading Location" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
+                        </iframe> -->
+
+                        <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57174.432536996836!2d50.037803859279144!3d26.410499748505504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e49fc51151e5ce1%3A0x63d209a321c76a58!2z2YXZgdix2YjYtNin2Kog2KfZhNi62YjZitix2Yog2LfYp9mI2YTYp9iq!5e0!3m2!1sen!2sbd!4v1783089442862!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe> -->
 
                         <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3572.8421575554967!2d50.0663609!3d26.428569800000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e49fc51151e5ce1%3A0x63d209a321c76a58!2z2YXZgdix2YjYtNin2Kog2KfZhNi62YjZitix2Yog2LfYp9mI2YTYp9iq!5e0!3m2!1sen!2sbd!4v1783015042327!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe> -->
 
@@ -1279,7 +1375,8 @@
                     <a href="#home" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
                     <a href="#products" data-ar="المنتجات" data-en="Products">المنتجات</a>
                     <a href="#about" data-ar="من نحن" data-en="About">من نحن</a>
-                    <a href="#contact" data-ar="تواصل" data-en="Contact">تواصل</a>
+                    <a href="https://wa.me/966508709877" target="_blank" rel="noopener" data-ar="تواصل"
+                        data-en="Contact">تواصل</a>
                 </div>
                 <div class="col-lg-3">
                     <h6 data-ar="منتجاتنا" data-en="Our Products">منتجاتنا</h6>
@@ -1305,7 +1402,11 @@
         </div>
     </footer>
 
-    <!-- Floating WhatsApp Button -->
+    <!-- Floating Call + WhatsApp Buttons -->
+    <a href="tel:00966508709877" class="call-float" aria-label="Call Al-Ghuwairy Furniture Trading">
+        <i class="bi bi-telephone-fill"></i>
+    </a>
+
     <a href="https://wa.me/966508709877" target="_blank" class="whatsapp-float" aria-label="WhatsApp Chat">
         <i class="bi bi-whatsapp"></i>
     </a>
@@ -1346,6 +1447,33 @@
             window.open(url, '_blank');
         }
 
+        function openContactWhatsApp() {
+            const currentLang = languageSelect.value;
+            const name = document.getElementById('contactName').value.trim();
+            const mobile = document.getElementById('contactMobile').value.trim();
+            const product = document.getElementById('contactProduct').value;
+            const note = document.getElementById('contactMessage').value.trim();
+
+            const message = currentLang === 'ar'
+                ? [
+                    'مرحباً، أريد التواصل معكم.',
+                    name ? 'الاسم: ' + name : '',
+                    mobile ? 'رقم الجوال: ' + mobile : '',
+                    product ? 'نوع الطلب: ' + product : '',
+                    note ? 'الرسالة: ' + note : ''
+                ]
+                : [
+                    'Hello, I would like to contact you.',
+                    name ? 'Name: ' + name : '',
+                    mobile ? 'Mobile: ' + mobile : '',
+                    product ? 'Request type: ' + product : '',
+                    note ? 'Message: ' + note : ''
+                ];
+
+            const url = 'https://wa.me/' + phoneNumber + '?text=' + encodeURIComponent(message.filter(Boolean).join('\n'));
+            window.open(url, '_blank');
+        }
+
         document.querySelectorAll('.js-whatsapp-product').forEach(function (product) {
             product.addEventListener('click', function () {
                 const currentLang = languageSelect.value;
@@ -1361,10 +1489,15 @@
             changeLanguage(this.value);
         });
 
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            openContactWhatsApp();
+        });
+
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
         // Default language is Arabic
-        changeLanguage('en');
+        changeLanguage('ar');
     </script>
 
 </body>
