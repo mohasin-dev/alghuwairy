@@ -49,21 +49,40 @@
         </div>
     </header>
 
-    <section class="py-5 bg-soft">
+    @php($testimonialSection = $sections['testimonials'] ?? null)
+    <section class="section-padding">
         <div class="container">
-            <div class="row g-4 text-center">
-                @foreach ([['bi-whatsapp','طلب سريع عبر واتساب','Quick WhatsApp Order','اضغط على أي منتج لإرسال الطلب مباشرة.','Click any product to send the order directly.'],['bi-rulers','مقاسات وألوان متعددة','Multiple Sizes & Colors','اختر المقاس واللون المناسب لمنزلك.','Choose the right size and color for your home.'],['bi-truck','توصيل وتركيب','Delivery & Installation','خدمة توصيل وتركيب داخل الدمام والمملكة.','Delivery and installation service in Dammam, Saudi Arabia.']] as $feature)
-                    <div class="col-md-4">
-                        <div class="feature-card">
-                            <div class="feature-icon"><i class="bi {{ $feature[0] }}"></i></div>
-                            <h5 data-ar="{{ $feature[1] }}" data-en="{{ $feature[2] }}">{{ $feature[1] }}</h5>
-                            <p class="text-muted mb-0" data-ar="{{ $feature[3] }}" data-en="{{ $feature[4] }}">{{ $feature[3] }}</p>
+            <div class="text-center">
+                <h2 class="section-title" data-ar="{{ $testimonialSection->title_ar ?? '' }}" data-en="{{ $testimonialSection->title_en ?? '' }}">{{ $testimonialSection->title_ar ?? '' }}</h2>
+                <p class="section-subtitle" data-ar="{{ $testimonialSection->subtitle_ar ?? '' }}" data-en="{{ $testimonialSection->subtitle_en ?? '' }}">{{ $testimonialSection->subtitle_ar ?? '' }}</p>
+            </div>
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    @foreach ($testimonials as $testimonial)
+                        <div class="carousel-item @if($loop->first) active @endif">
+                            <div class="testimonial-card">
+                                <div class="d-flex align-items-center gap-3 mb-3">
+                                    <div class="testimonial-avatar"><i class="bi bi-person"></i></div>
+                                    <div>
+                                        <div class="testimonial-name-row">
+                                            <h5 class="mb-0" data-ar="{{ $testimonial->name_ar }}" data-en="{{ $testimonial->name_en }}">{{ $testimonial->name_ar }}</h5>
+                                            <span class="testimonial-stars" aria-label="5 out of 5 stars" title="5 out of 5 stars">
+                                                @for ($star = 0; $star < 5; $star++)
+                                                    <i class="bi bi-star-fill" aria-hidden="true"></i>
+                                                @endfor
+                                            </span>
+                                        </div>
+                                        <small class="text-muted">{{ $testimonial->city }}</small>
+                                    </div>
+                                </div>
+                                <p class="mb-0 lh-lg" data-ar="{{ $testimonial->message_ar }}" data-en="{{ $testimonial->message_en }}">{{ $testimonial->message_ar }}</p>
+                            </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
         </div>
-    </section>
+    </section
 
     @include('partials.product-section', ['id' => 'new-arrival', 'section' => $sections['new_arrival'] ?? null, 'items' => $newArrivals])
 
@@ -124,30 +143,18 @@
         </div>
     </section>
 
-    @php($testimonialSection = $sections['testimonials'] ?? null)
-    <section class="section-padding">
+        <section class="py-5 bg-soft">
         <div class="container">
-            <div class="text-center">
-                <h2 class="section-title" data-ar="{{ $testimonialSection->title_ar ?? '' }}" data-en="{{ $testimonialSection->title_en ?? '' }}">{{ $testimonialSection->title_ar ?? '' }}</h2>
-                <p class="section-subtitle" data-ar="{{ $testimonialSection->subtitle_ar ?? '' }}" data-en="{{ $testimonialSection->subtitle_en ?? '' }}">{{ $testimonialSection->subtitle_ar ?? '' }}</p>
-            </div>
-            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    @foreach ($testimonials as $testimonial)
-                        <div class="carousel-item @if($loop->first) active @endif">
-                            <div class="testimonial-card">
-                                <div class="d-flex align-items-center gap-3 mb-3">
-                                    <div class="testimonial-avatar"><i class="bi bi-person"></i></div>
-                                    <div>
-                                        <h5 class="mb-0" data-ar="{{ $testimonial->name_ar }}" data-en="{{ $testimonial->name_en }}">{{ $testimonial->name_ar }}</h5>
-                                        <small class="text-muted">{{ $testimonial->city }}</small>
-                                    </div>
-                                </div>
-                                <p class="mb-0 lh-lg" data-ar="{{ $testimonial->message_ar }}" data-en="{{ $testimonial->message_en }}">{{ $testimonial->message_ar }}</p>
-                            </div>
+            <div class="row g-4 text-center">
+                @foreach ([['bi-whatsapp','طلب سريع عبر واتساب','Quick WhatsApp Order','اضغط على أي منتج لإرسال الطلب مباشرة.','Click any product to send the order directly.'],['bi-rulers','مقاسات وألوان متعددة','Multiple Sizes & Colors','اختر المقاس واللون المناسب لمنزلك.','Choose the right size and color for your home.'],['bi-truck','توصيل وتركيب','Delivery & Installation','خدمة توصيل وتركيب داخل الدمام والمملكة.','Delivery and installation service in Dammam, Saudi Arabia.']] as $feature)
+                    <div class="col-md-4">
+                        <div class="feature-card">
+                            <div class="feature-icon"><i class="bi {{ $feature[0] }}"></i></div>
+                            <h5 data-ar="{{ $feature[1] }}" data-en="{{ $feature[2] }}">{{ $feature[1] }}</h5>
+                            <p class="text-muted mb-0" data-ar="{{ $feature[3] }}" data-en="{{ $feature[4] }}">{{ $feature[3] }}</p>
                         </div>
-                    @endforeach
-                </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>

@@ -13,7 +13,7 @@
     <div class="container">
         <a class="navbar-brand d-flex align-items-center gap-3" href="{{ route('home') }}">
             <span class="brand-mark">{{ $settings['brand_mark'] ?? 'غ' }}</span>
-            <span>
+            <span class="brand-text">
                 <span class="d-block brand-ar">{{ $settings['brand_ar'] ?? '' }}</span>
                 <span class="d-block brand-en">{{ $settings['brand_en'] ?? '' }}</span>
                 <small class="brand-subtitle" data-ar="{{ $settings['tagline_ar'] ?? '' }}" data-en="{{ $settings['tagline_en'] ?? '' }}">{{ $settings['tagline_ar'] ?? '' }}</small>
