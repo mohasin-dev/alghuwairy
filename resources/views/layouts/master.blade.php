@@ -308,7 +308,6 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            direction: ltr;
         }
 
         .testimonial-name-row h5 {
@@ -318,6 +317,7 @@
         .testimonial-stars {
             display: inline-flex;
             gap: 2px;
+            direction: ltr;
             color: var(--gold);
             font-size: 14px;
             line-height: 1;
@@ -468,7 +468,7 @@
             }
 
             .brand-text {
-                font-size: 16px
+                font-size: 15px;
             }
         }
     </style>
