@@ -468,7 +468,7 @@
             }
 
             .brand-text {
-                font-size: 15px;
+                font-size: 16px;
             }
         }
     </style>
