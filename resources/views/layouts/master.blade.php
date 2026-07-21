@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title', $settings['brand_en'] ?? 'Al-Ghuwairy Furniture Trading | Sofas & Curtains in Dammam, Saudi Arabia')</title>
     <meta name="description" content="@yield('description', 'Al-Ghuwairy Furniture Trading offers premium sofas, curtains, Arabic majlis furniture, living room sofas, custom curtain design, delivery, and WhatsApp ordering in Dammam, Saudi Arabia, 00966508709877.')">
-    @yield('meta')
+    
+    yield('meta')
 
     <meta name="keywords"
         content="Al-Ghuwairy Furniture, مفروشات الغويري, sofas Dammam, Saudi Arabia, sofas in Riyadh, curtains Dammam, Saudi Arabia, sofa and curtain shop, Arabic majlis sofa, living room furniture Dammam, Saudi Arabia, custom curtains, luxury sofa, 00966508709877, كنب السعودية, ستائر السعودية, كنب وستائر, مجالس عربية">
@@ -472,7 +473,7 @@
             }
         }
     </style>
-    
+
     @stack('styles')
 </head>
 
