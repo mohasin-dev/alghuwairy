@@ -472,6 +472,7 @@
             }
         }
     </style>
+    
     @stack('styles')
 </head>
 
